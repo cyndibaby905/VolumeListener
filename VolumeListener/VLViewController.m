@@ -53,6 +53,8 @@
     volumeListener = [[VolumeListener alloc] init];
     [[self.view viewWithTag:54870149] removeFromSuperview];
     [self.view addSubview: [volumeListener dummyVolume]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
+        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     }
     else{
